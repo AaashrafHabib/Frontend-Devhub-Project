@@ -1,0 +1,45 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginuser()">
+    <p-card header="Login" [style]="{width:'360px'}">
+        <div class="field">
+            <label for="email"> Email </label>
+            <input type="text" pInputText formControlName="email" class="w-full" name="email" placeholder="Type your email" />
+            <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+      </small>
+        </div>
+        <div class="field">
+            <label for="password"> Password </label>
+            <br>
+            <!-- <p-password [(ngModel)]="value" [toggleMask]="true" formControlName="Password"></p-password> -->
+            <!-- <p-password formControlName="value" [feedback]="false" formControlName="Password"></p-password> -->
+            <input type="password" pInputText formControlName="Password" class="w-full" name="Password" placeholder="Type your password" />
+            <small *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="block p-error">
+            <div *ngIf="Password.errors?.['required']">Password is required.</div>
+          </small>
+        </div>
+        <div class="field">
+            <label for="Role"> Role </label>
+            <br>
+            <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" formControlName="selectedRole" [options]="[
+            { label: 'Client', data: 'client' },
+            { label: 'Consultant', data: 'consultant' },
+            { label: 'Administrateur', data: 'administrateur' }
+          ]" placeholder="Select Item"></p-treeSelect>
+            <!-- <select class="form-select" aria-label="Default select example" formControlName="Role">
+              <option value="1">Client</option>
+              <option value="2">Administrateur</option>
+              <option value="3">Consultant</option>
+            </select> -->
+
+            <!-- <small *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="block p-error">
+          <div *ngIf="Password.errors?.['required']">Password is required.</div>
+        </small> -->
+        </div>
+        <p-button label="Submit" [disabled]="loginForm.invalid" type="submit"></p-button>
+        <div class="mt-2">Not a member? <a routerLink="/register">Register</a></div>
+        <div class="mt-2">Forgot your password ? <a routerLink="/home">Replace it </a></div>
+    </p-card>
+
+
+</form>

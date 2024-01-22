@@ -1,0 +1,40 @@
+<form [formGroup]="addClientForm">
+    <p-card header="Add Client" [style]="{ width: '360px' }">
+        <div class="field">
+            <label for="fullName">FullName</label>
+            <input type="text" pInputText formControlName="fullName" class="w-full" name="fullName" placeholder="Type your name" />
+            <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="block p-error">
+          <div *ngIf="fullName.errors?.['required']">Name is required.</div>
+          <div *ngIf="fullName.errors?.['pattern']">Enter a valid Name</div>
+        </small>
+        </div>
+        <div class="field">
+            <label for="Username">Username</label>
+            <input type="text" pInputText formControlName="Username" class="w-full" name="Username" placeholder="Type your Username" />
+            <small *ngIf="Username.invalid && (Username.dirty || Username.touched)" class="block p-error">
+          <div *ngIf="Username.errors?.['required']">Username is required.</div>
+          <div *ngIf="Username.errors?.['pattern']">Enter a valid UserName</div>
+        </small>
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="text" pInputText formControlName="email" class="w-full" name="email" placeholder="Type your email" />
+            <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+          <div *ngIf="email.errors?.['email']">Email should be valid</div>
+        </small>
+        </div>
+        <div class="field">
+            <label for="password">Password</label>
+            <br>
+            <p-password [(ngModel)]="value" [toggleMask]="true" formControlName="password"></p-password>
+            <!-- <input type="password" pInputText formControlName="password" class="w-full" name="password" placeholder="Type your password" /> -->
+            <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+          <div *ngIf="password.errors?.['required']">Password is required.</div>
+        </small>
+        </div>
+
+        <p-button label="Register" styleClass="w-full" [disabled]="addClientForm.invalid" type="submit"></p-button>
+        <div class="mt-2">Already a member? <a routerLink="/login">Login</a></div>
+    </p-card>
+</form>
