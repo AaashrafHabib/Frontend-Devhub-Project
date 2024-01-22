@@ -1,12 +1,21 @@
+<app-menubar></app-menubar>
 <form [formGroup]="addConsultantForm">
     <p-card header="Add Consultant" [style]="{ width: '360px' }">
         <div class="field">
-            <label for="fullName">FullName</label>
-            <input type="text" pInputText formControlName="fullName" class="w-full" name="fullName" placeholder="Type your name" />
-            <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="block p-error">
-          <div *ngIf="fullName.errors?.['required']">Name is required.</div>
-          <div *ngIf="fullName.errors?.['pattern']">Enter a valid Name</div>
-        </small>
+            <label for="firstName">FirstName</label>
+            <input type="text" pInputText formControlName="FirstName" class="w-full" name="FirstName" placeholder="Type your First Name" />
+            <small *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)" class="block p-error">
+      <div *ngIf="FirstName.errors?.['required']">First Name is required.</div>
+      <div *ngIf="FirstName.errors?.['pattern']">Enter a valid Name</div>
+    </small>
+        </div>
+        <div class="field">
+            <label for="LastName">LastName</label>
+            <input type="text" pInputText formControlName="LastName" class="w-full" name="LastName" placeholder="Type your Last Name" />
+            <small *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)" class="block p-error">
+    <div *ngIf="LastName.errors?.['required']">Last Name is required.</div>
+    <div *ngIf="LastName.errors?.['pattern']">Enter a valid LastName</div>
+  </small>
         </div>
         <div class="field">
             <label for="Username">Username</label>
@@ -23,6 +32,13 @@
           <div *ngIf="email.errors?.['required']">Email is required.</div>
           <div *ngIf="email.errors?.['email']">Email should be valid</div>
         </small>
+        </div>
+        <div class="field">
+            <label for="mobile">Mobile</label>
+            <input type="text" pInputText formControlName="Mobile" class="w-full" name="Mobile" placeholder="Type your phone number" />
+            <small *ngIf="Mobile.invalid && (Mobile.dirty || Mobile.touched)" class="block p-error">
+      <div *ngIf="email.errors?.['required']">Mobile is required.</div>
+    </small>
         </div>
         <div class="field">
             <label for="password">Password</label>

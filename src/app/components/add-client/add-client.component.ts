@@ -16,28 +16,47 @@ export class AddClientComponent {
   value1!:string ; 
   addClientForm=this.fb.group ({
 
-    fullName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
-    Username : ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+    prenom: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+  nom: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+    username : ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
+    mobile: ['', [Validators.required]],
+    motdepasse: ['', Validators.required],
 
   },  {
     validators: passwordMatchValidator
   })
 constructor(private fb :FormBuilder, private auth:AuthService,private messageService: MessageService, private route:Router){} 
 
-get fullName() { 
-  return this.addClientForm.controls['fullName']; 
+get FirstName() { 
+  return this.addClientForm.controls['prenom']; 
+}
+
+get LastName() { 
+  return this.addClientForm.controls['nom']; 
 }
 get email() { 
   return this.addClientForm.controls['email']; 
 }
 get password() { 
-  return this.addClientForm.controls['password']; 
+  return this.addClientForm.controls['motdepasse']; 
+}
+get Mobile() { 
+  return this.addClientForm.controls['mobile']; 
 }
 get Username() { 
-  return this.addClientForm.controls['Username']; 
+  return this.addClientForm.controls['username']; 
 } 
+onSubmit(){
+  this.auth.sendFormData(this.addClientForm.value).subscribe(
+  (response) => {
+    console.log('Réponse du serveur :', response);
+  },
+  (error) => {
+    console.error('Erreur lors de l\'envoi du formulaire :', error);
+  }
+);
+}
 // submit(){ 
 //   const postData = { ...this.addClientForm.value }; 
 //   delete postData.confirmPassword; 

@@ -16,15 +16,15 @@ selectedCity: any;
   value!: string;
 responsedata : any ; 
   loginForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    username: ['', [Validators.required]],
     Password: ['', Validators.required], 
     selectedRole : ['', Validators.required]
 
   })
 constructor(private fb :FormBuilder,private auth:AuthService,private route:Router, private message:MessageService){} 
 
-get email(){ 
-  return this.loginForm.controls['email']; 
+get username(){ 
+  return this.loginForm.controls['username']; 
 }
 get Password() { return this.loginForm.controls['Password']; }
 // loginuser() { 
@@ -51,13 +51,29 @@ loginuser( ){
     if(result!=null){
       this.message.add({ severity: 'success', summary: 'Success', detail: 'Login successfull' });
       this.responsedata=result;
-      localStorage.setItem('token',this.responsedata.jwtToken)
-      this.route.navigate(['home'])
+      localStorage.setItem('token',this.responsedata.jwtToken);
+      this.route.navigate(['home']);
     }
 
   });
 }
+onSubmit()
+{  
+  console.log(this.loginForm.value.selectedRole)
+if (this.loginForm.value.selectedRole=="Administrator")
+{
+  this.route.navigate (["homeAdmin"]);
+}
+if (this.loginForm.value.selectedRole=="Consultant")
+{
+  this.route.navigate (["homeConsultant"]);
+}
+if (this.loginForm.value.selectedRole=="Client")
+{
+  this.route.navigate (["homeClient"]);
+}
 
+}
 ngOnInit() {
 }
 

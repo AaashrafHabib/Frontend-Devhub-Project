@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,8 +6,15 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   constructor(private router:Router) {}
+  
+  ngOnInit() {
+
+    console.log("chediii");
+  }
+
+  
   logOut() {
     sessionStorage.clear();
     this.router.navigate(['login']);

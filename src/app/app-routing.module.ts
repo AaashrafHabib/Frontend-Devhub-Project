@@ -4,10 +4,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { authGuard } from './guards/auth.guard';
-import { TryComponent } from './try/try.component';
 import { AddClientComponent } from './components/add-client/add-client.component';
 import { AddConsultantComponent } from './components/add-consultant/add-consultant.component';
 import { AddAdministrateurComponent } from './components/add-administrateur/add-administrateur.component';
+import { HomeClientComponent } from './components/home-client/home-client.component';
+import { HomeConsultantComponent } from './components/home-consultant/home-consultant.component';
+import { ProgressComponent } from './components/progress/progress.component';
 
 const routes: Routes = [
   {
@@ -31,13 +33,22 @@ const routes: Routes = [
     component: AddConsultantComponent
   },
   {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [authGuard]
-  }, 
-  {  
-    path:'try', component:TryComponent
+    path: 'homeClient',
+    component: HomeClientComponent
   },
+  {
+    path: 'progress',
+    component: ProgressComponent
+  },
+  {
+    path: 'homeConsultant',
+    component: HomeConsultantComponent
+  },
+  {
+    path: 'homeadmin',
+    component: HomeComponent,
+    //canActivate: [authGuard]
+  }, 
   {
     path: '', redirectTo: 'home', pathMatch: 'full'
   }

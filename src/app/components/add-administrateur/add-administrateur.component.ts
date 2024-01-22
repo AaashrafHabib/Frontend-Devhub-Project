@@ -15,9 +15,11 @@ export class AddAdministrateurComponent {
   value1!:string ; 
   addAdminForm=this.fb.group ({
 
-    fullName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
+    FirstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
+    LastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
     Username : ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     email: ['', [Validators.required, Validators.email]],
+    Mobile: ['', [Validators.required]],
     password: ['', Validators.required],
 
   },  {
@@ -25,8 +27,12 @@ export class AddAdministrateurComponent {
   })
 constructor(private fb :FormBuilder, private auth:AuthService,private messageService: MessageService, private route:Router){} 
 
-get fullName() { 
-  return this.addAdminForm.controls['fullName']; 
+get FirstName() { 
+  return this.addAdminForm.controls['FirstName']; 
+}
+
+get LastName() { 
+  return this.addAdminForm.controls['LastName']; 
 }
 get email() { 
   return this.addAdminForm.controls['email']; 
@@ -37,4 +43,7 @@ get password() {
 get Username() { 
   return this.addAdminForm.controls['Username']; 
 } 
+get Mobile() { 
+  return this.addAdminForm.controls['Mobile']; 
+}
 }

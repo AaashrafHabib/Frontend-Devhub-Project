@@ -1,11 +1,10 @@
-<form [formGroup]="loginForm" (ngSubmit)="loginuser()">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <p-card header="Login" [style]="{width:'360px'}">
         <div class="field">
-            <label for="email"> Email </label>
-            <input type="text" pInputText formControlName="email" class="w-full" name="email" placeholder="Type your email" />
-            <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
-        <div *ngIf="email.errors?.['required']">Email is required.</div>
-        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+            <label for="username"> Username</label>
+            <input type="text" pInputText formControlName="username" class="w-full" name="username" placeholder="Type your username " />
+            <small *ngIf="username.invalid && (username.dirty || username.touched)" class="block p-error">
+        <div *ngIf="username.errors?.['required']">Username is required.</div>
       </small>
         </div>
         <div class="field">
@@ -19,13 +18,19 @@
           </small>
         </div>
         <div class="field">
-            <label for="Role"> Role </label>
-            <br>
-            <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" formControlName="selectedRole" [options]="[
+            <div class="input-group mb-3 w-full">
+                <label class="input-group-text w-full" for="inputGroupSelect01">Options</label>
+                <select class="form-select" id="inputGroupSelect01" formControlName="selectedRole" name="selectedRole">
+                <option value="Client">Client</option>
+                <option value="consultant">Consultant</option>
+                <option value="Administrator">Administrator</option>
+              </select>
+            </div>
+            <!-- <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" formControlName="selectedRole" [options]="[
             { label: 'Client', data: 'client' },
             { label: 'Consultant', data: 'consultant' },
-            { label: 'Administrateur', data: 'administrateur' }
-          ]" placeholder="Select Item"></p-treeSelect>
+            { label: 'Administrator', data: 'administrator' }
+          ]" placeholder="Select Item"></p-treeSelect> -->
             <!-- <select class="form-select" aria-label="Default select example" formControlName="Role">
               <option value="1">Client</option>
               <option value="2">Administrateur</option>
@@ -36,7 +41,7 @@
           <div *ngIf="Password.errors?.['required']">Password is required.</div>
         </small> -->
         </div>
-        <p-button label="Submit" [disabled]="loginForm.invalid" type="submit"></p-button>
+        <p-button label="Submit" [disabled]="loginForm.invalid" type="submit" (Click)="onSubmit()"></p-button>
         <div class="mt-2">Not a member? <a routerLink="/register">Register</a></div>
         <div class="mt-2">Forgot your password ? <a routerLink="/home">Replace it </a></div>
     </p-card>

@@ -1,16 +1,25 @@
-<form [formGroup]="addClientForm">
+<app-menubar></app-menubar>
+<form [formGroup]="addClientForm" (ngSubmit)="onSubmit()">
     <p-card header="Add Client" [style]="{ width: '360px' }">
         <div class="field">
-            <label for="fullName">FullName</label>
-            <input type="text" pInputText formControlName="fullName" class="w-full" name="fullName" placeholder="Type your name" />
-            <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="block p-error">
-          <div *ngIf="fullName.errors?.['required']">Name is required.</div>
-          <div *ngIf="fullName.errors?.['pattern']">Enter a valid Name</div>
+            <label for="firstName">FirstName</label>
+            <input type="text" pInputText formControlName="nom" class="w-full" name="nom" placeholder="Type your First Name" />
+            <small *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)" class="block p-error">
+          <div *ngIf="FirstName.errors?.['required']">First Name is required.</div>
+          <div *ngIf="FirstName.errors?.['pattern']">Enter a valid Name</div>
         </small>
         </div>
         <div class="field">
+            <label for="LastName">LastName</label>
+            <input type="text" pInputText formControlName="prenom" class="w-full" name="prenom" placeholder="Type your Last Name" />
+            <small *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)" class="block p-error">
+        <div *ngIf="LastName.errors?.['required']">Last Name is required.</div>
+        <div *ngIf="LastName.errors?.['pattern']">Enter a valid LastName</div>
+      </small>
+        </div>
+        <div class="field">
             <label for="Username">Username</label>
-            <input type="text" pInputText formControlName="Username" class="w-full" name="Username" placeholder="Type your Username" />
+            <input type="text" pInputText formControlName="username" class="w-full" name="username" placeholder="Type your Username" />
             <small *ngIf="Username.invalid && (Username.dirty || Username.touched)" class="block p-error">
           <div *ngIf="Username.errors?.['required']">Username is required.</div>
           <div *ngIf="Username.errors?.['pattern']">Enter a valid UserName</div>
@@ -25,9 +34,16 @@
         </small>
         </div>
         <div class="field">
+            <label for="mobile">Mobile</label>
+            <input type="text" pInputText formControlName="mobile" class="w-full" name="mobile" placeholder="Type your phone number" />
+            <small *ngIf="Mobile.invalid && (Mobile.dirty || Mobile.touched)" class="block p-error">
+        <div *ngIf="email.errors?.['required']">Mobile is required.</div>
+      </small>
+        </div>
+        <div class="field">
             <label for="password">Password</label>
             <br>
-            <p-password [(ngModel)]="value" [toggleMask]="true" formControlName="password"></p-password>
+            <p-password [(ngModel)]="value" [toggleMask]="true" formControlName="motdepasse"></p-password>
             <!-- <input type="password" pInputText formControlName="password" class="w-full" name="password" placeholder="Type your password" /> -->
             <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
           <div *ngIf="password.errors?.['required']">Password is required.</div>

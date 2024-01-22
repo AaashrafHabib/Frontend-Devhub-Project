@@ -22,7 +22,7 @@ export class MenubarComponent implements OnInit{
             
         },
         {
-            label: 'Users', routerLink:['/login'],
+            label: 'Users',
             icon: 'pi pi-fw pi-user',
             items: [
                 {

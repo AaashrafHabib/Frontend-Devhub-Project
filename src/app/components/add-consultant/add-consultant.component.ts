@@ -15,9 +15,11 @@ export class AddConsultantComponent {
   value1!:string ; 
   addConsultantForm=this.fb.group ({
 
-    fullName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
+    FirstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
+    LastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
     Username : ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     email: ['', [Validators.required, Validators.email]],
+    Mobile: ['', [Validators.required]],
     password: ['', Validators.required],
 
   },  {
@@ -25,8 +27,15 @@ export class AddConsultantComponent {
   })
 constructor(private fb :FormBuilder, private auth:AuthService,private messageService: MessageService, private route:Router){} 
 
-get fullName() { 
-  return this.addConsultantForm.controls['fullName']; 
+get FirstName() { 
+  return this.addConsultantForm.controls['FirstName']; 
+}
+get Mobile() { 
+  return this.addConsultantForm.controls['Mobile']; 
+}
+
+get LastName() { 
+  return this.addConsultantForm.controls['LastName']; 
 }
 get email() { 
   return this.addConsultantForm.controls['email']; 

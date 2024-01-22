@@ -1,0 +1,10 @@
+<div class="card">
+    <p-timeline [value]="events">
+        <ng-template pTemplate="content" let-event>
+            <small class="p-text-secondary">{{ event.date }}</small>
+        </ng-template>
+        <ng-template pTemplate="opposite" let-event>
+            {{ event.status }}
+        </ng-template>
+    </p-timeline>
+</div>
