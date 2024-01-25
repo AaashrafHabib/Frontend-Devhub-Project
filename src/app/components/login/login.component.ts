@@ -58,7 +58,8 @@ loginuser( ){
   });
 }
 onSubmit()
-{  
+{   
+  console.log(this.loginForm.value);
   console.log(this.loginForm.value.selectedRole)
 if (this.loginForm.value.selectedRole=="Administrator")
 {

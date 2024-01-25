@@ -1,10 +1,9 @@
-<app-menubar></app-menubar>
-<form [formGroup]="addConsultantForm" (ngSubmit)="onsubmit()">
+<form [formGroup]="formGroup">
     <p-card header="Add Consultant" [style]="{ width: '360px' }">
         <div class="field">
             <label for="firstName">FirstName</label>
             <input type="text" pInputText formControlName="FirstName" class="w-full" name="FirstName" placeholder="Type your First Name" />
-            <small *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)" class="block p-error">
+            <small *ngIf="formGroup.get('firstName')" class="block p-error">
       <div *ngIf="FirstName.errors?.['required']">First Name is required.</div>
       <div *ngIf="FirstName.errors?.['pattern']">Enter a valid Name</div>
     </small>
@@ -50,7 +49,7 @@
         </small>
         </div>
 
-        <p-button label="Register" styleClass="w-full" [disabled]="addConsultantForm.invalid" type="submit"></p-button>
+        <p-button label="Register" styleClass="w-full" [disabled]="formGroup.invalid" type="submit"></p-button>
         <div class="mt-2">Already a member? <a routerLink="/login">Login</a></div>
     </p-card>
 </form>

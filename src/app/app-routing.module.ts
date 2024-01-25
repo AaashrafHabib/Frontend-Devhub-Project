@@ -10,6 +10,8 @@ import { AddAdministrateurComponent } from './components/add-administrateur/add-
 import { HomeClientComponent } from './components/home-client/home-client.component';
 import { HomeConsultantComponent } from './components/home-consultant/home-consultant.component';
 import { ProgressComponent } from './components/progress/progress.component';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { AddProjectComponent } from './components/add-project/add-project.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,10 @@ const routes: Routes = [
   {
     path: 'addClient',
     component: AddClientComponent
+  },
+  {
+    path: 'addProject',
+    component: AddProjectComponent
   },
   {
     path: 'addAdmin',
@@ -43,6 +49,10 @@ const routes: Routes = [
   {
     path: 'homeConsultant',
     component: HomeConsultantComponent
+  },
+  {
+    path: 'forgotpassword',
+    component: ForgotpasswordComponent
   },
   {
     path: 'homeadmin',

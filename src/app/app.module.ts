@@ -26,6 +26,10 @@ import { TreeSelectModule } from 'primeng/treeselect';
 import { HomeClientComponent } from './components/home-client/home-client.component';
 import { HomeConsultantComponent } from './components/home-consultant/home-consultant.component';
 import { ProgressComponent } from './components/progress/progress.component';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { AddProjectComponent } from './components/add-project/add-project.component';
+import { MyformComponent } from './components/myform/myform.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,10 @@ import { ProgressComponent } from './components/progress/progress.component';
     AddConsultantComponent,
     HomeClientComponent,
     HomeConsultantComponent,
-    ProgressComponent
+    ProgressComponent,
+    ForgotpasswordComponent,
+    AddProjectComponent,
+    MyformComponent,
   ],
   imports: [
     BrowserModule,

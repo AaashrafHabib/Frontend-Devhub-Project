@@ -20,7 +20,8 @@
         <div class="field">
             <div class="input-group mb-3 w-full">
                 <label class="input-group-text w-full" for="inputGroupSelect01">Options</label>
-                <select class="form-select" id="inputGroupSelect01" formControlName="selectedRole" name="selectedRole">
+                <br>
+                <select class="form-select w-full" id="inputGroupSelect01" pInputText formControlName="selectedRole" name="selectedRole">
                 <option value="Client">Client</option>
                 <option value="consultant">Consultant</option>
                 <option value="Administrator">Administrator</option>
@@ -43,7 +44,7 @@
         </div>
         <p-button label="Submit" [disabled]="loginForm.invalid" type="submit" (Click)="onSubmit()"></p-button>
         <div class="mt-2">Not a member? <a routerLink="/register">Register</a></div>
-        <div class="mt-2">Forgot your password ? <a routerLink="/home">Replace it </a></div>
+        <div class="mt-2">Forgot your password ? <a routerLink="/forgotpassword">Replace it </a></div>
     </p-card>
 
 

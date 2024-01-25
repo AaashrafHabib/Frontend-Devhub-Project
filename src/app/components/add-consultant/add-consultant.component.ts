@@ -19,7 +19,7 @@ export class AddConsultantComponent {
     LastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
     Username : ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     email: ['', [Validators.required, Validators.email]],
-    Mobile: ['', [Validators.required]],
+    Mobile: ['', [Validators.required,Validators.pattern(/^\d+$/)]],
     password: ['', Validators.required],
 
   },  {
@@ -45,5 +45,10 @@ get password() {
 }
 get Username() { 
   return this.addConsultantForm.controls['Username']; 
-} 
+}  
+
+onsubmit() { 
+console.log(this.addConsultantForm)
+
+}
 }

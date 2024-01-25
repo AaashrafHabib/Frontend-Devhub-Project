@@ -1,0 +1,43 @@
+<form [formGroup]="addprojectform" (ngSubmit)="submit()">
+    <p-card header="Add Project" [style]="{ width: '360px' }">
+        <div class="field">
+            <label for="Title">Title</label>
+            <input type="text" pInputText formControlName="Title" class="w-full" name="Title" placeholder="Type your project name" />
+            <small *ngIf="Title?.invalid && (Title?.dirty || Title?.touched)" class="block p-error">
+          <div *ngIf="Title?.errors?.['required']">Title is required.</div>
+          <div *ngIf="Title?.errors?.['pattern']">Enter a valid Name</div>
+        </small>
+        </div>
+        <div class="field">
+            <label for="Client">Client Name</label>
+            <input type="text" pInputText formControlName="Client" class="w-full" name="Client" formControlName="Client" placeholder="Type your Client Name" />
+            <small *ngIf="Client?.invalid && (Client?.dirty || Client?.touched)" class="block p-error">
+          <div *ngIf="Client?.errors?.['required']">Client name is required.</div>
+          <div *ngIf="Client?.errors?.['pattern']">Enter a valid Client Name</div>
+        </small>
+        </div>
+        <div class="field">
+            <label for="description">Description:</label>
+            <textarea rows="5" cols="30" pInputTextarea pInputText class="w-full" formControlName="Description"></textarea>
+            <div *ngIf="description?.hasError('minlength') && description?.touched">
+                Description must be at least 20 characters.
+            </div>
+            <br>
+        </div>
+        <div class="field">
+            <label class="label-title" for="file">File</label>
+            <input required id="file" type="text" pInputText name="file" class="w-full ab" formControlName="file">
+        </div>
+        <div class="field">
+            <label class="label-title" for="startdate">Start Date</label>
+            <input required id="startdate" type="date" pInputText formControlName="startdate" class="w-full ab">
+        </div>
+        <div class="field">
+            <label class="label-title" for="enddate">End Date</label>
+            <input required id="enddate" type="date" pInputText formControlName="enddate" class="w-full ab">
+        </div>
+
+        <p-button label="add" styleClass="w-full" [disabled]="addprojectform.invalid" type="submit"></p-button>
+
+    </p-card>
+</form>
