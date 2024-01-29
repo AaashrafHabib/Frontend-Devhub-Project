@@ -1,25 +1,35 @@
-import { Component } from '@angular/core';
-interface EventItem {
-  status?: string;
-  date?: string;
-  icon?: string;
-  color?: string;
-  image?: string;
+import { Component,Input, OnInit } from '@angular/core';
+export interface TodoItem {
+  id: number;
+  task: string;
+  completed: boolean;
 }
 @Component({
   selector: 'app-progress',
   templateUrl: './progress.component.html',
   styleUrls: ['./progress.component.css']
 })
-export class ProgressComponent {
-  events: EventItem[];
+export class ProgressComponent implements OnInit {
+  
+  @Input() cardheight: string = '250px';
+  
+  todos: { text: string; done: boolean }[] = [];
+  newTodo: string = '';
 
-  constructor() {
-      this.events = [
-          { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg' },
-          { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
-          { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
-          { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
-      ];
+  addTodo() {
+    if (this.newTodo.trim() !== '') {
+      this.todos.push({ text: this.newTodo, done: false });
+      this.newTodo = '';
+    }
   }
-}
+
+  removeTodo(index: number) {
+    this.todos.splice(index, 1);
+  }
+
+  toggleDone(index: number) {
+    this.todos[index].done = !this.todos[index].done;
+  }
+  ngOnInit(): void {
+    }
+  }

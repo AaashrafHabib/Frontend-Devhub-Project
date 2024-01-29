@@ -15,15 +15,28 @@ export class AuthService {
 
   } 
   IsLoggedIn(){
-    return localStorage.getItem('token')!=null;
+    return localStorage.getItem('access_token')!=null;
   }
-  sendFormData(formData: any): Observable<any> {
-    const data=JSON.stringify(formData);
-    console.log(data);
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any>(`${this.baseUrl}/client`, data, { headers });
-    
-  }
+  sendFormData(data: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.http.post<any>(`${this.baseUrl}/client`, data, httpOptions);
+   
+  }  
+
+  login (data:any):Observable<any> { 
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.http.post<any>(`${this.baseUrl}/authentification/login`, data, httpOptions);
+}
+
 
 
   }

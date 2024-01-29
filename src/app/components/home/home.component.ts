@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit{
   
   ngOnInit() {
 
-    console.log("chediii");
   }
 
   
@@ -19,5 +18,7 @@ export class HomeComponent implements OnInit{
     sessionStorage.clear();
     this.router.navigate(['login']);
   }
-
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
+  }
 }

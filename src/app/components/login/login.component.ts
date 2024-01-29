@@ -17,8 +17,8 @@ selectedCity: any;
 responsedata : any ; 
   loginForm = this.fb.group({
     username: ['', [Validators.required]],
-    Password: ['', Validators.required], 
-    selectedRole : ['', Validators.required]
+    password: ['', Validators.required], 
+    role : ['', Validators.required]
 
   })
 constructor(private fb :FormBuilder,private auth:AuthService,private route:Router, private message:MessageService){} 
@@ -26,7 +26,7 @@ constructor(private fb :FormBuilder,private auth:AuthService,private route:Route
 get username(){ 
   return this.loginForm.controls['username']; 
 }
-get Password() { return this.loginForm.controls['Password']; }
+get Password() { return this.loginForm.controls['password']; }
 // loginuser() { 
 //    console.log(this.loginForm.value)
 //   const {email,Password}= this.loginForm.value; 
@@ -59,20 +59,53 @@ loginuser( ){
 }
 onSubmit()
 {   
-  console.log(this.loginForm.value);
-  console.log(this.loginForm.value.selectedRole)
-if (this.loginForm.value.selectedRole=="Administrator")
-{
-  this.route.navigate (["homeAdmin"]);
-}
-if (this.loginForm.value.selectedRole=="Consultant")
-{
-  this.route.navigate (["homeConsultant"]);
-}
-if (this.loginForm.value.selectedRole=="Client")
-{
-  this.route.navigate (["homeClient"]);
-}
+
+  this.auth.login(this.loginForm.value).subscribe(
+    (response) => { 
+      console.log('Réponse du serveur :', response);
+      this.message.add({ severity: 'success', summary: 'Success', detail: 'Login successfull' });
+        localStorage.setItem('access_token',response.access_token);
+      this.route.navigate (["/homeadmin"]);
+    },
+    (error) => {
+      console.error('Error during form data submission:', error);
+    
+      if (error.status === 401) {
+        // Handle the specific case of a 400 Bad Request
+        this.message.add({ severity: 'error', summary: 'Error', detail: 'username or password not found ' });
+        console.error('Bad Request Error:', error.error);
+    
+        // Extract and log the error message
+        if (error.error && error.error.message) {
+          console.error('Server Error Message:', error.error.message);
+        }
+        else {
+          // Handle other types of errors
+          console.error('Unhandled Error:', error);
+      } 
+      } else if(error.status==404) {
+        this.message.add({ severity: 'error', summary: 'Error', detail: 'username already used' });
+        
+      }
+    }
+    );
+    
+
+
+//   console.log(this.loginForm.value);
+//   console.log(this.loginForm.value.selectedRole)
+// if (this.loginForm.value.selectedRole=="Administrator")
+// {
+//   this.route.navigate (["homeAdmin"]);
+// }
+// if (this.loginForm.value.selectedRole=="Consultant")
+// {
+//   this.route.navigate (["homeConsultant"]);
+// }
+// if (this.loginForm.value.selectedRole=="Client")
+// {
+//   this.route.navigate (["homeClient"]);
+// }
 
 }
 ngOnInit() {

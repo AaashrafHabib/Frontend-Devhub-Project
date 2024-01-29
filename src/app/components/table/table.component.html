@@ -1,0 +1,34 @@
+<div class="assign-section">
+    <h3>All Projects</h3>
+</div>
+
+<table class="table-styles">
+    <thead>
+        <tr>
+            <th class="table-header-cell-styles">Title</th>
+            <th class="table-header-cell-styles">File</th>
+            <th class="table-header-cell-styles">Description</th>
+            <th class="table-header-cell-styles">Client name</th>
+            <th class="table-header-cell-styles">Start Date</th>
+            <th class="table-header-cell-styles">End Date</th>
+            <th class="table-header-cell-styles">Consultant</th>
+            <th class="table-header-cell-styles">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let projectall of projectsall ; let i = index">
+            <td class="table-cell-styles">{{ projectall.project.titre }}</td>
+            <td class="table-cell-styles">{{ projectall.project.fichier_charge }}</td>
+            <td class="table-cell-styles">{{ projectall.project.description }}</td>
+            <td class="table-cell-styles">{{ projectall.project.nom_client }}</td>
+            <td class="table-cell-styles">{{ projectall.project.debut_date }}</td>
+            <td class="table-cell-styles">{{ projectall.project.fin_date }}</td>
+            <td class="table-cell-styles">{{ projectall.consultant.username }}</td>
+            <td class="table-cell-styles">
+                <button class="delete-button">Delete</button>
+                <button class="edit-button">Edit</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

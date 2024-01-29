@@ -4,7 +4,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/interfaces/auth';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { passwordMatchValidator } from '../register/passwordmismatch.directive';
 
 @Component({
   selector: 'app-add-client',
@@ -23,8 +22,6 @@ export class AddClientComponent {
     mobile: ['', [Validators.required]],
     motdepasse: ['', Validators.required],
 
-  },  {
-    validators: passwordMatchValidator
   })
 constructor(private fb :FormBuilder, private auth:AuthService,private messageService: MessageService, private route:Router){} 
 
@@ -47,15 +44,47 @@ get Mobile() {
 get Username() { 
   return this.addClientForm.controls['username']; 
 } 
-onSubmit(){
-  this.auth.sendFormData(this.addClientForm.value).subscribe(
-  (response) => {
-    console.log('Réponse du serveur :', response);
-  },
-  (error) => {
-    console.error('Erreur lors de l\'envoi du formulaire :', error);
+onSubmit(){ 
+//   console.log(this.addClientForm.value)
+//   this.auth.sendFormData(this.addClientForm.value).subscribe(
+//   (response) => {
+//     console.log('Réponse du serveur :', response);
+//   },
+//   (error) => {
+//     console.error('Erreur lors de l\'envoi du formulaire :', error);
+//   }
+// ); 
+// ************
+
+this.auth.sendFormData(this.addClientForm.value).subscribe(
+(response) => {
+  console.log('Réponse du serveur :', response);
+  this.messageService.add({ severity: 'success', summary: 'Success', detail: 'client added successfully ' });
+},
+(error) => {
+  console.error('Error during form data submission:', error);
+
+  if (error.status === 400) {
+    // Handle the specific case of a 400 Bad Request
+    console.error('Bad Request Error:', error.error);
+
+    // Extract and log the error message
+    if (error.error && error.error.message) {
+      console.error('Server Error Message:', error.error.message);
+    }
+    else {
+      // Handle other types of errors
+      console.error('Unhandled Error:', error);
+  } 
+  } else if(error.status==404) {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'username already used' });
+    
   }
+}
 );
+
+
+
 }
 // submit(){ 
 //   const postData = { ...this.addClientForm.value }; 

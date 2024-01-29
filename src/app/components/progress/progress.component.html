@@ -1,10 +1,18 @@
-<div class="card">
-    <p-timeline [value]="events">
-        <ng-template pTemplate="content" let-event>
-            <small class="p-text-secondary">{{ event.date }}</small>
-        </ng-template>
-        <ng-template pTemplate="opposite" let-event>
-            {{ event.status }}
-        </ng-template>
-    </p-timeline>
-</div>
+<p-card header="Todo-List" [style]="{ width:'460px ',height:'500px'}">
+    <ng-template pTemplate="header">
+    </ng-template>
+    <div class="todo-list-container p-shadow-3">
+        <div class="add-todo p-inputgroup">
+            <input pInputText [(ngModel)]="newTodo" placeholder="Add a new todo" />
+            <button pButton type="button" icon="pi pi-plus" (click)="addTodo()" class="p-button-info"></button>
+        </div>
+        <div class="todo-item" *ngFor="let todo of todos; let i = index">
+            <span class="todo-text" [ngClass]="{ 'done': todo.done }" (click)="toggleDone(i)">
+        {{ i + 1 }}. {{ todo.text }}
+      </span>
+            <button pButton type="button" icon="pi pi-trash" (click)="removeTodo(i)" class="p-button-danger"></button>
+        </div>
+    </div>
+
+
+</p-card>

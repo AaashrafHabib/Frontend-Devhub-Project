@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/interfaces/auth';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { passwordMatchValidator } from '../register/passwordmismatch.directive';
+import { passwordMatchValidator } from '../../register/passwordmismatch.directive';
 @Component({
   selector: 'app-add-consultant',
   templateUrl: './add-consultant.component.html',
@@ -15,12 +15,12 @@ export class AddConsultantComponent {
   value1!:string ; 
   addConsultantForm=this.fb.group ({
 
-    FirstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
-    LastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
-    Username : ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+    prenom: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
+    nom: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
+    username : ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     email: ['', [Validators.required, Validators.email]],
-    Mobile: ['', [Validators.required,Validators.pattern(/^\d+$/)]],
-    password: ['', Validators.required],
+    mobile: ['', [Validators.required,Validators.pattern(/^\d+$/)]],
+    motdepasse: ['', Validators.required],
 
   },  {
     validators: passwordMatchValidator
@@ -28,23 +28,23 @@ export class AddConsultantComponent {
 constructor(private fb :FormBuilder, private auth:AuthService,private messageService: MessageService, private route:Router){} 
 
 get FirstName() { 
-  return this.addConsultantForm.controls['FirstName']; 
+  return this.addConsultantForm.controls['prenom']; 
 }
 get Mobile() { 
-  return this.addConsultantForm.controls['Mobile']; 
+  return this.addConsultantForm.controls['mobile']; 
 }
 
 get LastName() { 
-  return this.addConsultantForm.controls['LastName']; 
+  return this.addConsultantForm.controls['nom']; 
 }
 get email() { 
   return this.addConsultantForm.controls['email']; 
 }
 get password() { 
-  return this.addConsultantForm.controls['password']; 
+  return this.addConsultantForm.controls['motdepasse']; 
 }
 get Username() { 
-  return this.addConsultantForm.controls['Username']; 
+  return this.addConsultantForm.controls['username']; 
 }  
 
 onsubmit() { 

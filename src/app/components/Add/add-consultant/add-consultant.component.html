@@ -1,21 +1,21 @@
 <app-menubar></app-menubar>
-<form [formGroup]="addClientForm" (ngSubmit)="onSubmit()">
-    <p-card header="Add Client" [style]="{ width: '360px' }">
+<form [formGroup]="addConsultantForm" (ngSubmit)="onsubmit()">
+    <p-card header="Add Consultant" [style]="{ width: '360px' }">
         <div class="field">
             <label for="firstName">FirstName</label>
-            <input type="text" pInputText formControlName="nom" class="w-full" name="nom" placeholder="Type your First Name" />
+            <input type="text" pInputText formControlName="prenom" class="w-full" name="FirstName" placeholder="Type your First Name" />
             <small *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)" class="block p-error">
-          <div *ngIf="FirstName.errors?.['required']">First Name is required.</div>
-          <div *ngIf="FirstName.errors?.['pattern']">Enter a valid Name</div>
-        </small>
+      <div *ngIf="FirstName.errors?.['required']">First Name is required.</div>
+      <div *ngIf="FirstName.errors?.['pattern']">Enter a valid Name</div>
+    </small>
         </div>
         <div class="field">
             <label for="LastName">LastName</label>
-            <input type="text" pInputText formControlName="prenom" class="w-full" name="prenom" placeholder="Type your Last Name" />
+            <input type="text" pInputText formControlName="nom" class="w-full" name="LastName" placeholder="Type your Last Name" />
             <small *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)" class="block p-error">
-        <div *ngIf="LastName.errors?.['required']">Last Name is required.</div>
-        <div *ngIf="LastName.errors?.['pattern']">Enter a valid LastName</div>
-      </small>
+    <div *ngIf="LastName.errors?.['required']">Last Name is required.</div>
+    <div *ngIf="LastName.errors?.['pattern']">Enter a valid LastName</div>
+  </small>
         </div>
         <div class="field">
             <label for="Username">Username</label>
@@ -35,10 +35,10 @@
         </div>
         <div class="field">
             <label for="mobile">Mobile</label>
-            <input type="text" pInputText formControlName="mobile" class="w-full" name="mobile" placeholder="Type your phone number" />
+            <input type="text" pInputText formControlName="mobile" class="w-full" name="Mobile" placeholder="Type your phone number" />
             <small *ngIf="Mobile.invalid && (Mobile.dirty || Mobile.touched)" class="block p-error">
-        <div *ngIf="email.errors?.['required']">Mobile is required.</div>
-      </small>
+      <div *ngIf="email.errors?.['required']">Mobile is required.</div>
+    </small>
         </div>
         <div class="field">
             <label for="password">Password</label>
@@ -50,7 +50,7 @@
         </small>
         </div>
 
-        <p-button label="Register" styleClass="w-full" [disabled]="addClientForm.invalid" type="submit"></p-button>
+        <p-button label="Register" styleClass="w-full" [disabled]="addConsultantForm.invalid" type="submit"></p-button>
         <div class="mt-2">Already a member? <a routerLink="/login">Login</a></div>
     </p-card>
 </form>

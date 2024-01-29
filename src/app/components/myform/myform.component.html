@@ -1,5 +1,5 @@
 <form [formGroup]="formGroup">
-    <p-card header="Add Consultant" [style]="{ width: '360px' }">
+    <p-card header="Add Consultant" [style]="{ width: '360px' }" (ngSubmit)="onSubmit()">
         <div class="field">
             <label for="firstName">FirstName</label>
             <input type="text" pInputText formControlName="FirstName" class="w-full" name="FirstName" placeholder="Type your First Name" />

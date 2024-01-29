@@ -12,7 +12,7 @@
             <br>
             <!-- <p-password [(ngModel)]="value" [toggleMask]="true" formControlName="Password"></p-password> -->
             <!-- <p-password formControlName="value" [feedback]="false" formControlName="Password"></p-password> -->
-            <input type="password" pInputText formControlName="Password" class="w-full" name="Password" placeholder="Type your password" />
+            <input type="password" pInputText formControlName="password" class="w-full" name="Password" placeholder="Type your password" />
             <small *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="block p-error">
             <div *ngIf="Password.errors?.['required']">Password is required.</div>
           </small>
@@ -21,26 +21,12 @@
             <div class="input-group mb-3 w-full">
                 <label class="input-group-text w-full" for="inputGroupSelect01">Options</label>
                 <br>
-                <select class="form-select w-full" id="inputGroupSelect01" pInputText formControlName="selectedRole" name="selectedRole">
+                <select class="form-select w-full" id="inputGroupSelect01" pInputText formControlName="role" name="role">
                 <option value="Client">Client</option>
-                <option value="consultant">Consultant</option>
+                <option value="Consultant">Consultant</option>
                 <option value="Administrator">Administrator</option>
               </select>
             </div>
-            <!-- <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" formControlName="selectedRole" [options]="[
-            { label: 'Client', data: 'client' },
-            { label: 'Consultant', data: 'consultant' },
-            { label: 'Administrator', data: 'administrator' }
-          ]" placeholder="Select Item"></p-treeSelect> -->
-            <!-- <select class="form-select" aria-label="Default select example" formControlName="Role">
-              <option value="1">Client</option>
-              <option value="2">Administrateur</option>
-              <option value="3">Consultant</option>
-            </select> -->
-
-            <!-- <small *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="block p-error">
-          <div *ngIf="Password.errors?.['required']">Password is required.</div>
-        </small> -->
         </div>
         <p-button label="Submit" [disabled]="loginForm.invalid" type="submit" (Click)="onSubmit()"></p-button>
         <div class="mt-2">Not a member? <a routerLink="/register">Register</a></div>

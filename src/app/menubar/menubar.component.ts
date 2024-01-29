@@ -18,7 +18,7 @@ export class MenubarComponent implements OnInit{
         },
         {
             label: 'Home',
-            icon: 'pi pi-fw pi-home',
+            icon: 'pi pi-fw pi-home',routerLink:['/homeadmin']
             
         },
         {
@@ -26,15 +26,15 @@ export class MenubarComponent implements OnInit{
             icon: 'pi pi-fw pi-user',
             items: [
                 {
-                    label: 'Add client', routerLink:['/addClient'],
+                    label: 'Add client', routerLink:['/homeadmin/addClient'],
                     icon: 'pi pi-fw pi-user-plus'
                 },
                 {
-                    label: 'Add  consultant',routerLink:['/addConsultant'],
+                    label: 'Add  consultant',routerLink:['/homeadmin/addConsultant'],
                     icon: 'pi pi-fw pi-user-plus'
                 },
                 {
-                    label: 'Add-administrateur',routerLink:['/addAdmin'],
+                    label: 'Add-administrateur',routerLink:['/homeadmin/addAdmin'],
                     icon: 'pi pi-fw pi-user-plus',
                     // items: [
                     //     {
@@ -56,39 +56,51 @@ export class MenubarComponent implements OnInit{
             ]
         },
         {
-            label: 'Events',
-            icon: 'pi pi-fw pi-calendar',
+            label: 'View Users',
+            icon: 'pi pi-fw pi-user',
             items: [
                 {
-                    label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil',
-                    items: [
-                        {
-                            label: 'Save',
-                            icon: 'pi pi-fw pi-calendar-plus'
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-fw pi-calendar-minus'
-                        }
-                    ]
+                    label: 'Client Table', routerLink:['/homeadmin/addClient'],
+                    icon: 'pi pi-fw pi-user-plus'
                 },
                 {
-                    label: 'Archieve',
-                    icon: 'pi pi-fw pi-calendar-times',
-                    items: [
-                        {
-                            label: 'Remove',
-                            icon: 'pi pi-fw pi-calendar-minus'
-                        }
-                    ]
+                    label: 'Consultant Table',routerLink:['/homeadmin/addConsultant'],
+                    icon: 'pi pi-fw pi-user-plus'
+                },
+                {
+                    label: 'Admin Table',routerLink:['/homeadmin/addAdmin'],
+                    icon: 'pi pi-fw pi-user-plus',
+                    // items: [
+                    //     {
+                    //         label: 'Filter',
+                    //         icon: 'pi pi-fw pi-filter',
+                    //         items: [
+                    //             {
+                    //                 label: 'Print',
+                    //                 icon: 'pi pi-fw pi-print'
+                    //             }
+                    //         ]
+                    //     },
+                    //     {
+                    //         icon: 'pi pi-fw pi-bars',
+                    //         label: 'List'
+                    //     }
+                    // ]
                 }
             ]
         },
-        {
-            label: 'Quit',
-            icon: 'pi pi-fw pi-power-off'
-        }
+        // {
+        //     label: 'Quit',routerLink:['/login'], 
+        //     icon: 'pi pi-fw pi-power-off', 
+        //     command: () => {
+        //         this.logout();
+        //       }
+        // }
     ];
-}
+  }
+    logout() {
+        localStorage.removeItem('access_token');
+        console.log('sddsd'); 
+        // Additional logic for handling the Quit action if needed
+      }
 }

@@ -1,0 +1,25 @@
+.todo-list-container {
+    max-width: 300px;
+    margin: auto;
+}
+
+.add-todo {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.todo-text {
+    cursor: pointer;
+    transition: text-decoration 0.3s;
+}
+
+.todo-text.done {
+    text-decoration: line-through;
+}

@@ -6,3 +6,18 @@ app-menubar {
     z-index: 1000;
     /* Adjust the z-index value based on your layout needs */
 }
+
+.flex {
+    display: flex;
+}
+
+.inline-card {
+    margin-right: 10px;
+    /* Adjust the margin as needed */
+}
+
+.below-cards {
+    width: 720px;
+    margin-top: 20px;
+    /* Adjust the margin as needed */
+}

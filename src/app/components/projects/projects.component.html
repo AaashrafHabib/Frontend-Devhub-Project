@@ -1,0 +1,14 @@
+<div class="assign-section">
+    <h3>Assign Project to Consultant</h3>
+
+    <p-dropdown class="select-styles" [(ngModel)]="selectedConsultant" [options]="consultants" optionLabel="username">
+        <option value="Select Consultant">Select Consultant</option>
+    </p-dropdown>
+
+    <p-dropdown class="select-styles" [(ngModel)]="selectedProject" [options]="projects" optionLabel="titre">
+        <option value="Select Project">Select Project</option>
+    </p-dropdown>
+
+    <p-button class="button-styles" (onClick)="emit()">Assign Project</p-button>
+    <app-table *ngIf="selectedProject && selectedConsultant" [selectedproject]="selectedProject" [selectedconsultant]="selectedConsultant"></app-table>
+</div>

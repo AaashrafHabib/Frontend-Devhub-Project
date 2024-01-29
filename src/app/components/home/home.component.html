@@ -1,2 +1,18 @@
 <app-menubar></app-menubar>
-<p-button label="Sign out" (onClick)="logOut()"></p-button>
+<div class="flex">
+    <app-card class="inline-card" [cardheight]="'500px'">
+    </app-card>
+    <app-card class="inline-card" [cardheight]="'500px'"></app-card>
+    <app-progress class="inline-card" [cardheight]="'250px'"> </app-progress>
+</div>
+<div style="margin-top: 20px;">
+    <app-card class="below-cards" [cardheight]="'500px'" [cardWidth]="'940px'"></app-card>
+</div>
+<div style="margin-top: 20px;">
+    <!-- <app-progress class="below-cards" [cardheight]="'500px'">
+    </app-progress> -->
+    <app-card class="below-cards" [cardheight]="'500px'" [cardWidth]="'940px'">
+    </app-card>
+    <app-projects></app-projects>
+
+</div>
