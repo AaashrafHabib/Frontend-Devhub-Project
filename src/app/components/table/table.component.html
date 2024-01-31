@@ -2,33 +2,41 @@
     <h3>All Projects</h3>
 </div>
 
-<table class="table-styles">
-    <thead>
-        <tr>
-            <th class="table-header-cell-styles">Title</th>
-            <th class="table-header-cell-styles">File</th>
-            <th class="table-header-cell-styles">Description</th>
-            <th class="table-header-cell-styles">Client name</th>
-            <th class="table-header-cell-styles">Start Date</th>
-            <th class="table-header-cell-styles">End Date</th>
-            <th class="table-header-cell-styles">Consultant</th>
-            <th class="table-header-cell-styles">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let projectall of projectsall ; let i = index">
-            <td class="table-cell-styles">{{ projectall.project.titre }}</td>
-            <td class="table-cell-styles">{{ projectall.project.fichier_charge }}</td>
-            <td class="table-cell-styles">{{ projectall.project.description }}</td>
-            <td class="table-cell-styles">{{ projectall.project.nom_client }}</td>
-            <td class="table-cell-styles">{{ projectall.project.debut_date }}</td>
-            <td class="table-cell-styles">{{ projectall.project.fin_date }}</td>
-            <td class="table-cell-styles">{{ projectall.consultant.username }}</td>
-            <td class="table-cell-styles">
-                <button class="delete-button">Delete</button>
-                <button class="edit-button">Edit</button>
-            </td>
+<div class="card">
+    <p-treeTable [value]="projects" [scrollable]="true" [tableStyle]="{'min-width':'50rem'}">
 
-        </tr>
-    </tbody>
-</table>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>File</th>
+                <th>Client name</th>
+                <th>Status</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Consultant</th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+            <tr [ttRow]="rowNode">
+                <tbody>
+                    <tr *ngFor="let project of projects">
+                        <td>{{ project.titre }}</td>
+                        <td>{{ project.description }}</td>
+                        <td>{{ project.fichier_charge }}</td>
+                        <td>{{ project.date_debut }}</td>
+                        <td>{{ project.status }}</td>
+                        <td>{{ project.date_debut }}</td>
+                        <td>{{ project.date_fin }}</td>
+                        <td>
+                            <p-button label="Delete" severity="danger" (click)="delete(project.titre)"></p-button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </tr>
+        </ng-template>
+    </p-treeTable>
+</div>

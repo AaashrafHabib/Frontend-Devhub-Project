@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -12,7 +12,10 @@ import { HomeConsultantComponent } from './components/home-consultant/home-consu
 import { ProgressComponent } from './components/progress/progress.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { AddProjectComponent } from './components/Add/add-project/add-project.component';
+import { ChartComponent } from './components/chart/chart.component';
+
 const routes: Routes = [
+  {path:'', redirectTo:'/login',pathMatch:'full'}, 
   {
     path: 'login',
     component: LoginComponent
@@ -20,22 +23,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
-  },
-  {
-    path: 'homeadmin/addClient',
-    component: AddClientComponent
-  },
-  {
-    path: 'homeadmin/addProject',
-    component: AddProjectComponent
-  },
-  {
-    path: 'homeadmin/addAdmin',
-    component: AddAdministrateurComponent
-  },
-  {
-    path: 'homeadmin/addConsultant',
-    component: AddConsultantComponent
   },
   {
     path: 'homeClient',
@@ -54,10 +41,24 @@ const routes: Routes = [
     component: ForgotpasswordComponent
   },
   {
-    path: 'homeadmin',
-    component: HomeComponent,
-    canActivate: [authGuard]
-  },  
+    path: 'chart',
+    component: ChartComponent
+  },
+  // {
+  //   path: 'homeadmin',
+  //   component: HomeComponent,
+  //   canActivate: [authGuard]
+  // },  
+
+  { path:'homeadmin',
+  canActivate: [authGuard], children: [ 
+    {path:'', component:HomeComponent}, 
+   {path:'addConsultant', component:AddConsultantComponent}, 
+   {path:'addClient', component:AddClientComponent},
+   {path:'addAdmin', component:AddAdministrateurComponent},
+   {path:'addProject', component:AddProjectComponent},
+
+  ]}, 
   {
     path: '', redirectTo: 'home', pathMatch: 'full'
   }

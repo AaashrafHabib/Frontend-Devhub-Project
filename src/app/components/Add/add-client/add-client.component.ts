@@ -44,18 +44,7 @@ get Mobile() {
 get Username() { 
   return this.addClientForm.controls['username']; 
 } 
-onSubmit(){ 
-//   console.log(this.addClientForm.value)
-//   this.auth.sendFormData(this.addClientForm.value).subscribe(
-//   (response) => {
-//     console.log('Réponse du serveur :', response);
-//   },
-//   (error) => {
-//     console.error('Erreur lors de l\'envoi du formulaire :', error);
-//   }
-// ); 
-// ************
-
+onSubmit(){
 this.auth.sendFormData(this.addClientForm.value).subscribe(
 (response) => {
   console.log('Réponse du serveur :', response);

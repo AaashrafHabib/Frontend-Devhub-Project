@@ -1,6 +1,6 @@
 <app-menubar></app-menubar>
-<form [formGroup]="addAdminForm">
-    <p-card header="Add Administrateur" [style]="{ width: '360px' }">
+<form [formGroup]="addAdminForm" (ngSubmit)="onSubmit()">
+    <p-card header="Add Administrator" [style]="{ width: '360px' }">
         <div class="field">
             <label for="firstName">FirstName</label>
             <input type="text" pInputText formControlName="prenom" class="w-full" name="FirstName" placeholder="Type your First Name" />
@@ -50,7 +50,7 @@
         </small>
         </div>
 
-        <p-button label="Register" styleClass="w-full" [disabled]="addAdminForm.invalid" type="submit"></p-button>
+        <p-button label="Add" styleClass="w-full" [disabled]="addAdminForm.invalid" type="submit"></p-button>
         <div class="mt-2">Already a member? <a routerLink="/login">Login</a></div>
     </p-card>
 </form>

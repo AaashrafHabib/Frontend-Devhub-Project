@@ -22,6 +22,9 @@ export class PrincipalService {
   getprojects():Observable<any> { 
     return this.http.get<any>(`${this.baseUrl}/project`);
   }
+  getprojects2():Observable<any> { 
+    return this.http.get<any>(`${this.baseUrl}/project/projs`);
+  }
   getconsultants():Observable<any> { 
     return this.http.get<any>(`${this.baseUrl}/consultant`);
   }
@@ -33,12 +36,11 @@ export class PrincipalService {
         'Content-Type': 'application/json',
       }),
     };
-    console.log(consultant);
-    console.log(project);
+  
 
-    return this.http.post<any>(`localhost:8080/consultant/1/projects/1`, httpOptions);
+    return this.http.post<any>(`http://localhost:8080/consultant/${consultant.id}/projects/${project.id}`, httpOptions);
 
 
-  } 
+  }
 
 }

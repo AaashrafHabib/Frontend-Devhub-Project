@@ -65,22 +65,31 @@ onSubmit()
       console.log('Réponse du serveur :', response);
       this.message.add({ severity: 'success', summary: 'Success', detail: 'Login successfull' });
         localStorage.setItem('access_token',response.access_token);
-      this.route.navigate (["/homeadmin"]);
+        if (this.loginForm.value.role=="Administrator")
+         {
+          localStorage.setItem('admin_username',JSON.stringify(this.loginForm.value.username));
+           this.route.navigate (["homeadmin"]);
+        }
+       if (this.loginForm.value.role=="Consultant")
+       {
+          this.route.navigate (["homeConsultant"]);
+         }
+         if (this.loginForm.value.role=="Client")
+         {
+          this.route.navigate (["homeClient"]);
+        }
     },
     (error) => {
       console.error('Error during form data submission:', error);
     
       if (error.status === 401) {
-        // Handle the specific case of a 400 Bad Request
         this.message.add({ severity: 'error', summary: 'Error', detail: 'username or password not found ' });
         console.error('Bad Request Error:', error.error);
     
-        // Extract and log the error message
         if (error.error && error.error.message) {
           console.error('Server Error Message:', error.error.message);
         }
         else {
-          // Handle other types of errors
           console.error('Unhandled Error:', error);
       } 
       } else if(error.status==404) {

@@ -1,4 +1,18 @@
-<p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: cardWidth ,height:cardheight}">
-    <ng-template pTemplate="header">
-    </ng-template>
+<p-card header="Table View" subheader="Card Subheader" [style]="{ width: cardWidth ,height:cardheight}">
+    <!-- <span class="p-buttonset">
+        <button pButton pRipple label="ViewClients" icon="pi pi pi-users" (click)="selectedComponent = 'viewClient'"></button>
+        <button pButton pRipple label="ViewConsultants" icon="pi pi-users"  (click)="selectedComponent = 'viewConsultant'"></button>
+        <button pButton pRipple label="viewAdministrator" icon="pi pi-users"  (click)="selectedComponent = 'viewAdministrator'"></button>
+    </span>
+    <div>
+        <ng-container *ngIf="selectedComponent === 'viewClient'">
+            <app-table-client></app-table-client>
+        </ng-container>
+        <ng-container *ngIf="selectedComponent === 'viewConsultant'">
+            <app-table-consultant></app-table-consultant>
+        </ng-container>
+        <ng-container *ngIf="selectedComponent === 'viewAdministrator'">
+            <app-table-project></app-table-project>
+        </ng-container>
+    </div> -->
 </p-card>

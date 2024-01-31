@@ -1,18 +1,19 @@
-<app-menubar></app-menubar>
 <div class="flex">
-    <app-card class="inline-card" [cardheight]="'500px'">
-    </app-card>
-    <app-card class="inline-card" [cardheight]="'500px'"></app-card>
+    <!-- <app-card class="inline-card" [cardheight]="'500px'">
+    </app-card> -->
+    <app-chart-v2 class="inline-card"></app-chart-v2>
+
+    <!-- <app-card class="inline-card" [cardheight]="'500px'">
+    </app-card> -->
+    <app-chart class="inline-card"> </app-chart>
     <app-progress class="inline-card" [cardheight]="'250px'"> </app-progress>
 </div>
 <div style="margin-top: 20px;">
-    <app-card class="below-cards" [cardheight]="'500px'" [cardWidth]="'940px'"></app-card>
+    <!-- <app-card class="below-cards" [cardheight]="'500px'" [cardWidth]="'940px'"></app-card> -->
+    <app-view class="below-cards" [cardheight]="'1000px'" [cardWidth]="'1200px'"></app-view>
 </div>
 <div style="margin-top: 20px;">
-    <!-- <app-progress class="below-cards" [cardheight]="'500px'">
-    </app-progress> -->
-    <app-card class="below-cards" [cardheight]="'500px'" [cardWidth]="'940px'">
-    </app-card>
-    <app-projects></app-projects>
-
+    <div style="margin-top:20px;">
+        <app-projects class="below-cards" [cardheight]="'1000px'" [cardWidth]="'1440px'"></app-projects>
+    </div>
 </div>

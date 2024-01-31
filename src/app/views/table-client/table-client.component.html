@@ -1,0 +1,24 @@
+<div class="assign-section">
+    <h3> All Clients</h3>
+</div>
+
+<p-table [value]="clients">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>FirstName</th>
+            <th>Username</th>
+            <th>Mobile</th>
+            <th>Email</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-client>
+        <tr>
+            <td>{{ client.nom }}</td>
+            <td>{{ client.prenom }}</td>
+            <td>{{ client.username }}</td>
+            <td>{{ client.mobile }}</td>
+            <td>{{ client.email }}</td>
+        </tr>
+    </ng-template>
+</p-table>

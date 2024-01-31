@@ -26,15 +26,35 @@ export class MenubarComponent implements OnInit{
             icon: 'pi pi-fw pi-user',
             items: [
                 {
-                    label: 'Add client', routerLink:['/homeadmin/addClient'],
+                    label: 'Add Client', routerLink:['/homeadmin/addClient'],
                     icon: 'pi pi-fw pi-user-plus'
                 },
                 {
-                    label: 'Add  consultant',routerLink:['/homeadmin/addConsultant'],
+                    label: 'Add  Consultant',routerLink:['/homeadmin/addConsultant'],
                     icon: 'pi pi-fw pi-user-plus'
                 },
                 {
-                    label: 'Add-administrateur',routerLink:['/homeadmin/addAdmin'],
+                    label: 'Add Administrateur',routerLink:['/homeadmin/addAdmin'],
+                    icon: 'pi pi-fw pi-user-plus',
+                    // items: [
+                    //     {
+                    //         label: 'Filter',
+                    //         icon: 'pi pi-fw pi-filter',
+                    //         items: [
+                    //             {
+                    //                 label: 'Print',
+                    //                 icon: 'pi pi-fw pi-print'
+                    //             }
+                    //         ]
+                    //     },
+                    //     {
+                    //         icon: 'pi pi-fw pi-bars',
+                    //         label: 'List'
+                    //     }
+                    // ]
+                }, 
+                {
+                    label: 'Add Projects',routerLink:['/homeadmin/addProject'],
                     icon: 'pi pi-fw pi-user-plus',
                     // items: [
                     //     {

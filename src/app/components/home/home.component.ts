@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit{
   logOut() {
     sessionStorage.clear();
     this.router.navigate(['login']);
+    if(localStorage.getItem("client_username"))
+    {
+      localStorage.removeItem("client_username");
+    }
   }
   navigateTo(route: string): void {
     this.router.navigate([route]);

@@ -1,14 +1,24 @@
-<div class="assign-section">
-    <h3>Assign Project to Consultant</h3>
+<p-card header="Assign Project" [style]="{ width:cardWidth ,height:cardheight}">
+    <ng-template pTemplate="header">
+    </ng-template>
+    <div class="assign-section">
+        <h3>Assign Project to Consultant</h3>
 
-    <p-dropdown class="select-styles" [(ngModel)]="selectedConsultant" [options]="consultants" optionLabel="username">
-        <option value="Select Consultant">Select Consultant</option>
-    </p-dropdown>
+        <select class="form-select " pInputText [(ngModel)]="selectedConsultant">
+      <option selected value="Select Consultant">Select Consultant</option>
+      <option *ngFor="let consultant of consultants" [ngValue]="consultant">{{ consultant.username }}</option>
+    </select>
 
-    <p-dropdown class="select-styles" [(ngModel)]="selectedProject" [options]="projects" optionLabel="titre">
-        <option value="Select Project">Select Project</option>
-    </p-dropdown>
 
-    <p-button class="button-styles" (onClick)="emit()">Assign Project</p-button>
-    <app-table *ngIf="selectedProject && selectedConsultant" [selectedproject]="selectedProject" [selectedconsultant]="selectedConsultant"></app-table>
-</div>
+        <select class="form-select " pInputText [(ngModel)]="selectedProject">
+      <option selected value="Select Project">Select Project</option>
+      <option *ngFor="let project of projects" [ngValue]="project">{{ project.titre }}</option>
+    </select>
+
+        <p-button label="Assign Project" class="ab" (click)="assign()"></p-button>
+        <app-table [selectedproject]="selectedProject" [selectedconsultant]="selectedConsultant"> </app-table>
+
+    </div>
+
+
+</p-card>

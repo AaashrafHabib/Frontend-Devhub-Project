@@ -7,7 +7,8 @@ import { Component,Input } from '@angular/core';
 })
 export class CardComponent {
   @Input() cardWidth: string = '460px';
-  @Input() cardheight: string = '250px';
+  @Input() cardheight: string = '500px';
+  selectedComponent!: string;
 
       }
 

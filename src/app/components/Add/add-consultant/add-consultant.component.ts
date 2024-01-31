@@ -47,8 +47,38 @@ get Username() {
   return this.addConsultantForm.controls['username']; 
 }  
 
-onsubmit() { 
-console.log(this.addConsultantForm)
 
-}
+onSubmit(){
+  this.auth.sendConsultant(this.addConsultantForm.value).subscribe(
+  (response) => {
+    console.log('Réponse du serveur :', response);
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'consultant added successfully ' });
+  },
+  (error) => {
+    console.error('Error during form data submission:', error);
+  
+    if (error.status === 400) {
+      // Handle the specific case of a 400 Bad Request
+      console.error('Bad Request Error:', error.error);
+  
+      // Extract and log the error message
+      if (error.error && error.error.message) {
+        console.error('Server Error Message:', error.error.message);
+      }
+      else {
+        // Handle other types of errors
+        console.error('Unhandled Error:', error);
+    } 
+    } else if(error.status==404) {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'username already used' });
+      
+    }
+  }
+  );
+  
+  
+  
+  }
+
+
 }

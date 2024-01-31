@@ -5,3 +5,12 @@ body {
     height: 100%;
     margin: 0;
 }
+
+app-menubar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Adjust the z-index value based on your layout needs */
+}

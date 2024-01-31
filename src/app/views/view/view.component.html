@@ -1,0 +1,18 @@
+<p-card header="Table View" [style]="{ width: cardWidth ,height:cardheight}">
+    <span class="p-buttonset">
+        <button pButton pRipple label="ViewClients" icon="pi pi pi-users" (click)="selectedComponent = 'viewClient'"></button>
+        <button pButton pRipple label="ViewConsultants" icon="pi pi-users"  (click)="selectedComponent = 'viewConsultant'"></button>
+        <button pButton pRipple label="viewProject" icon="pi pi-users"  (click)="selectedComponent = 'viewProject'"></button>
+    </span>
+    <div>
+        <ng-container *ngIf="selectedComponent === 'viewClient'">
+            <app-table-client></app-table-client>
+        </ng-container>
+        <ng-container *ngIf="selectedComponent === 'viewConsultant'">
+            <app-table-consultant></app-table-consultant>
+        </ng-container>
+        <ng-container *ngIf="selectedComponent === 'viewProject'">
+            <app-table-project></app-table-project>
+        </ng-container>
+    </div>
+</p-card>

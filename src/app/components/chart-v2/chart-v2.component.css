@@ -1,0 +1,10 @@
+.chart-container {
+    height: 350px;
+    width: 300px;
+    justify-content: center;
+    /* Optional: Set the height to 100% if you want the content to take the full height of the card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}

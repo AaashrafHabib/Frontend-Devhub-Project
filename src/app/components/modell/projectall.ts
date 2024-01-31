@@ -7,7 +7,7 @@ export class projectall {
 
     constructor(
         project: project ,
-        user: consultant
+        user: consultant ,
 
     ) {
         this.project = project;

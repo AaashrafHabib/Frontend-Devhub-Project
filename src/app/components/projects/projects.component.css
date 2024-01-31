@@ -1,70 +1,63 @@
 .page-container {
-  margin: 1rem;
-  font-family: Arial, sans-serif;
+    margin: 1rem;
+    font-family: Arial, sans-serif;
 }
 
 .assign-section {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .select-styles {
-  padding: 0.5rem;
-  margin-right: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .button-styles {
-  padding: 0.4rem 0.8rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
-
-
 
 .table-styles {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 2rem;
-  border: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    border: 1px solid #ccc;
 }
-
 
 .table-header-cell-styles {
-  padding: 0.5rem;
-  text-align: left;
-  font-weight: bold;
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
 }
-
 
 .table-header-cell-styles {
-  padding: 0.5rem;
-  text-align: left;
-  font-weight: bold;
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
 }
 
-
-.delete-button{
-  color: #000000;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  background-color: #dc3545;
-  border-radius: 6px;
-
+.delete-button {
+    color: #000000;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    background-color: #dc3545;
+    border-radius: 6px;
 }
 
-.edit-button{
-  color: #000000;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  background-color: #0cad23;
-  border-radius: 6px;
-
+.edit-button {
+    color: #000000;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    background-color: #0cad23;
+    border-radius: 6px;
 }

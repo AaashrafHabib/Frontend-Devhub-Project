@@ -1,0 +1,31 @@
+<div class="assign-section">
+    <h3>All Projects</h3>
+</div>
+
+<p-table [value]="project">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Title</th>
+            <th>description</th>
+            <th>File</th>
+            <th>StartDate </th>
+            <th>EndDate</th>
+            <th>status</th>
+            <th>clientName</th>
+            <th>consultantName</th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-project>
+        <tr>
+            <td>{{ project.titre }}</td>
+            <td>{{ project.description}}</td>
+            <td>{{ project.fichier_charge }}</td>
+            <td>{{ project.date_debut }}</td>
+            <td>{{ project.date_fin}}</td>
+            <td>{{ project.status}}</td>
+            <td>{{ project?.client?.username }}</td>
+            <td>{{ project?.consultant?.username }}</td>
+        </tr>
+    </ng-template>
+</p-table>
