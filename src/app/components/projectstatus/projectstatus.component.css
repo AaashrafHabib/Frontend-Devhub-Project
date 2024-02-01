@@ -1,0 +1,45 @@
+.project-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.project-card {
+    flex: 0 0 calc(33.333% - 10px);
+    /* Adjust the width based on your layout preferences */
+    margin-right: 10px;
+    /* Adjust the margin between project cards */
+    margin-bottom: 10px;
+    /* Adjust the margin between rows */
+}
+
+
+/* Add this to your component's style file */
+
+.project-cards-container {
+    display: flex;
+    justify-content: space-between;
+    /* You can use other values like 'space-around', 'space-evenly', etc. */
+}
+
+.project-card {
+    border: 2px solid white;
+    border-radius: 8px;
+    /* Optional: Add border radius for rounded corners */
+    margin: 5px;
+    /* Optional: Adjust margin for spacing between cards */
+}
+
+.project-details {
+    text-align: left;
+}
+
+.start-date,
+.end-date,
+.description,
+.title {
+    font-size: 16px;
+    /* Adjust the font size as needed */
+    font-family: 'Your Desired Font Family', sans-serif;
+    /* Replace with your desired font family */
+}

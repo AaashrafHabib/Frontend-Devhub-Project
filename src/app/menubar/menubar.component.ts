@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-menubar',
@@ -9,8 +10,85 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenubarComponent implements OnInit{
   items: MenuItem[] | undefined;
-  constructor(private router: Router) {}
+  constructor(private router: Router,private auth:AuthService) {}
   ngOnInit() {
+   
+
+
+
+
+if (this.auth.isLoggedInAdministrator()){
+    this.items = [
+        {
+            label: 'Login ', routerLink:['/login'], 
+            icon: 'pi pi-fw pi-user',
+        },
+        {
+            label: 'Home',
+            icon: 'pi pi-fw pi-home',routerLink:['/home']
+            
+        },
+        {
+            label: 'Users',
+            icon: 'pi pi-fw pi-user',
+            items: [
+                {
+                    label: 'Add Client', routerLink:['/home/addClient'],
+                    icon: 'pi pi-fw pi-user-plus'
+                },
+                {
+                    label: 'Add  Consultant',routerLink:['/home/addConsultant'],
+                    icon: 'pi pi-fw pi-user-plus'
+                },
+                {
+                    label: 'Add Administrateur',routerLink:['/home/addAdmin'],
+                    icon: 'pi pi-fw pi-user-plus',
+                    
+                }, 
+                // {
+                //     label: 'Add Projects',routerLink:['/homeadmin/addProject'],
+                //     icon: 'pi pi-fw pi-user-plus',
+                   
+                    
+                // }
+            ]
+        },
+        
+       
+    ];
+
+}else if (this.auth.isLoggedInClient()){ 
+
+    this.items = [
+        {
+            label: 'Login ', routerLink:['/login'], 
+            icon: 'pi pi-fw pi-user',
+        },
+        {
+            label: 'Home',
+            icon: 'pi pi-fw pi-home',routerLink:['/home']
+            
+        },
+        {
+            label: 'add',
+            icon: 'pi pi-fw pi-user',
+            items: [
+                 {
+                    label: 'Add Projects',routerLink:['/home/addProject'],
+                    icon: 'pi pi-fw pi-user-plus',
+                   
+                    
+                }
+            ]
+        },
+        
+       
+    ];
+
+
+} else if (this.auth.isLoggedInConsultant()){
+
+    
     this.items = [
         {
             label: 'Login ', routerLink:['/login'], 
@@ -22,105 +100,33 @@ export class MenubarComponent implements OnInit{
             
         },
         {
-            label: 'Users',
+            label: 'view',
             icon: 'pi pi-fw pi-user',
             items: [
-                {
-                    label: 'Add Client', routerLink:['/homeadmin/addClient'],
-                    icon: 'pi pi-fw pi-user-plus'
-                },
-                {
-                    label: 'Add  Consultant',routerLink:['/homeadmin/addConsultant'],
-                    icon: 'pi pi-fw pi-user-plus'
-                },
-                {
-                    label: 'Add Administrateur',routerLink:['/homeadmin/addAdmin'],
+                 {
+                    label: 'view Project status',routerLink:['/projectstatus'],
                     icon: 'pi pi-fw pi-user-plus',
-                    // items: [
-                    //     {
-                    //         label: 'Filter',
-                    //         icon: 'pi pi-fw pi-filter',
-                    //         items: [
-                    //             {
-                    //                 label: 'Print',
-                    //                 icon: 'pi pi-fw pi-print'
-                    //             }
-                    //         ]
-                    //     },
-                    //     {
-                    //         icon: 'pi pi-fw pi-bars',
-                    //         label: 'List'
-                    //     }
-                    // ]
-                }, 
-                {
-                    label: 'Add Projects',routerLink:['/homeadmin/addProject'],
-                    icon: 'pi pi-fw pi-user-plus',
-                    // items: [
-                    //     {
-                    //         label: 'Filter',
-                    //         icon: 'pi pi-fw pi-filter',
-                    //         items: [
-                    //             {
-                    //                 label: 'Print',
-                    //                 icon: 'pi pi-fw pi-print'
-                    //             }
-                    //         ]
-                    //     },
-                    //     {
-                    //         icon: 'pi pi-fw pi-bars',
-                    //         label: 'List'
-                    //     }
-                    // ]
+                   
+                    
                 }
             ]
         },
-        {
-            label: 'View Users',
-            icon: 'pi pi-fw pi-user',
-            items: [
-                {
-                    label: 'Client Table', routerLink:['/homeadmin/addClient'],
-                    icon: 'pi pi-fw pi-user-plus'
-                },
-                {
-                    label: 'Consultant Table',routerLink:['/homeadmin/addConsultant'],
-                    icon: 'pi pi-fw pi-user-plus'
-                },
-                {
-                    label: 'Admin Table',routerLink:['/homeadmin/addAdmin'],
-                    icon: 'pi pi-fw pi-user-plus',
-                    // items: [
-                    //     {
-                    //         label: 'Filter',
-                    //         icon: 'pi pi-fw pi-filter',
-                    //         items: [
-                    //             {
-                    //                 label: 'Print',
-                    //                 icon: 'pi pi-fw pi-print'
-                    //             }
-                    //         ]
-                    //     },
-                    //     {
-                    //         icon: 'pi pi-fw pi-bars',
-                    //         label: 'List'
-                    //     }
-                    // ]
-                }
-            ]
-        },
-        // {
-        //     label: 'Quit',routerLink:['/login'], 
-        //     icon: 'pi pi-fw pi-power-off', 
-        //     command: () => {
-        //         this.logout();
-        //       }
-        // }
+        
+       
     ];
+}
+
+
+
+
+
+
+
+
+
   }
     logout() {
         localStorage.removeItem('access_token');
         console.log('sddsd'); 
-        // Additional logic for handling the Quit action if needed
       }
 }

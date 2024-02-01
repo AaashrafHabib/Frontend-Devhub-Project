@@ -14,7 +14,7 @@ export class TableClientComponent implements OnInit {
   ngOnInit(): void {
     this.clientService.getClients().subscribe((data) => {
       this.clients = data;
-      console.log(this.clients)
+    
     });
   }
 }

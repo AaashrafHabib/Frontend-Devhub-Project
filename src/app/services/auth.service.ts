@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as jwtDecode from 'jwt-decode';
 import { User } from '../interfaces/auth';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -138,27 +139,75 @@ isTokenValid(exp: string): boolean {
 
   return false;
 }
+isLoggedInClient():boolean{
+
+  let token =localStorage.getItem('access_token');
+  if(token ){
+    const decodedToken =jwtDecode.jwtDecode(token) as { [key: string]: string }; 
+    const role = decodedToken['role']; 
+    return role === 'Client';
+  }else{
+    return false;
+  }
 
 }
+isLoggedInConsultant():boolean{
+
+  let token =localStorage.getItem('access_token');
+  if(token ){
+    const decodedToken = jwtDecode.jwtDecode(token) as { [key: string]: string }; 
+    const role = decodedToken['role']; 
+    return role === 'Consultant';
+  }else{
+    return false;
+  }
+
+}
+isLoggedInAdministrator():boolean{
+
+  let token =localStorage.getItem('access_token');
+  if(token ){
+    const decodedToken = jwtDecode.jwtDecode(token) as { [key: string]: string }; 
+    const role = decodedToken['role']; 
+    return role === 'Administrator';
+  }else{
+    return false;
+  }
+
+}
+getProjectsbyClientUsername(username:string):Observable<any> { 
+  return this.http.get<any>(`${this.baseUrl}/client/${username}/projects`);
+}
+getProjectsbyConsultantUsername(username:string):Observable<any> { 
+  return this.http.get<any>(`${this.baseUrl}/consultant/${username}/projects`);
+}
+
+getUsername():string {
+  
+  let token =localStorage.getItem('access_token');
+  if(token ){
+    const decodedToken = jwtDecode.jwtDecode(token) as { [key: string]: string }; 
+    return decodedToken['username']; 
+}else { 
+  return ''; 
+}
+}}
+// extractRole():any { 
+
+//   const payload = {
+//     access_token : localStorage.getItem('access_token')
+    
+//     } ;  
+//     this.decode(payload).subscribe( 
+// (response)=> { 
+// console.log(response.role); 
+// console.log(typeof(response.role));
+// return response.role; 
+
+// }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     )
 
   // getUserByEmail(email: string): Observable<User[]> {
   //   return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`);

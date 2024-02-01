@@ -1,1 +1,6 @@
-<p-menubar [model]="items"></p-menubar>
+<p-menubar [model]="items">
+
+    <ng-template pTemplate="end">
+        <button pButton icon="pi pi-fw pi-power-off" (click)="logout()" [routerLink]="'/login'"></button>
+    </ng-template>
+</p-menubar>

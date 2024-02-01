@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
-  constructor(private router:Router) {}
+  constructor(private router:Router,private auth:AuthService) {}
   
   ngOnInit() {
 
   }
-
-  
   logOut() {
     sessionStorage.clear();
     this.router.navigate(['login']);
@@ -24,5 +23,17 @@ export class HomeComponent implements OnInit{
   }
   navigateTo(route: string): void {
     this.router.navigate([route]);
+  } 
+
+
+  isLoggedInAdministrator():boolean { 
+    return this.auth.isLoggedInAdministrator() ; 
   }
+  isLoggedInClient():boolean { 
+    return this.auth.isLoggedInClient() ; 
+  }
+  isLoggedinConsultant():boolean {
+
+    return this.auth.isLoggedInConsultant()
+ ;  }
 }

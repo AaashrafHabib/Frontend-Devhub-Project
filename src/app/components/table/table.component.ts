@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { PrincipalService } from 'src/app/services/principal.service';
 @Component({
@@ -10,9 +11,9 @@ export class TableComponent implements OnInit{
   @Input() selectedproject: any ;
   @Input() selectedconsultant: any ;
   projects: any[] = [];
-a:boolean=false;
+  a:boolean=false;
 
-  constructor(private principal_service : PrincipalService, private auth :AuthService)   {
+  constructor(private principal_service : PrincipalService, private auth :AuthService,private route :Router)   {
   ;}
   ngOnInit() {
     this.principal_service.getprojects().subscribe(
@@ -23,10 +24,11 @@ a:boolean=false;
     )
   }
   delete (project:string) { 
-      this.auth.delete(project).subscribe( 
-
-     ); 
-}
+    this.auth.delete(project).subscribe(() => {
+      // Reload the entire page
+      window.location.reload();
+    });
+  }
 
 
  

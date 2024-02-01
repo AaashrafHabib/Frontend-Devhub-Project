@@ -31,4 +31,9 @@ export class HomeConsultantComponent {
         }
     ];
 }
+
+logout() {
+    localStorage.removeItem('access_token');
+    console.log('a'); 
+  }
 }

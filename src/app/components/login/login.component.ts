@@ -65,19 +65,19 @@ onSubmit()
       console.log('Réponse du serveur :', response);
       this.message.add({ severity: 'success', summary: 'Success', detail: 'Login successfull' });
         localStorage.setItem('access_token',response.access_token);
-        if (this.loginForm.value.role=="Administrator")
-         {
+    
+         
           localStorage.setItem('admin_username',JSON.stringify(this.loginForm.value.username));
-           this.route.navigate (["homeadmin"]);
-        }
-       if (this.loginForm.value.role=="Consultant")
-       {
-          this.route.navigate (["homeConsultant"]);
-         }
-         if (this.loginForm.value.role=="Client")
-         {
-          this.route.navigate (["homeClient"]);
-        }
+           this.route.navigate (["home"]);
+    
+      //  if (this.loginForm.value.role=="Consultant")
+      //  {
+      //     this.route.navigate (["homeConsultant"]);
+      //    }
+      //    if (this.loginForm.value.role=="Client")
+      //    {
+      //     this.route.navigate (["homeClient"]);
+      //   }
     },
     (error) => {
       console.error('Error during form data submission:', error);

@@ -17,7 +17,7 @@ export class AddConsultantComponent {
 
     prenom: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
     nom: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]], 
-    username : ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+    username : ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     mobile: ['', [Validators.required,Validators.pattern(/^\d+$/)]],
     motdepasse: ['', Validators.required],

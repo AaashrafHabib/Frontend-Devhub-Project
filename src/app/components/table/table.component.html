@@ -2,6 +2,9 @@
     <h3>All Projects</h3>
 </div>
 
+
+
+
 <div class="card">
     <p-treeTable [value]="projects" [scrollable]="true" [tableStyle]="{'min-width':'50rem'}">
 
@@ -21,22 +24,22 @@
 
         <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
             <tr [ttRow]="rowNode">
-                <tbody>
-                    <tr *ngFor="let project of projects">
-                        <td>{{ project.titre }}</td>
-                        <td>{{ project.description }}</td>
-                        <td>{{ project.fichier_charge }}</td>
-                        <td>{{ project.date_debut }}</td>
-                        <td>{{ project.status }}</td>
-                        <td>{{ project.date_debut }}</td>
-                        <td>{{ project.date_fin }}</td>
-                        <td>
-                            <p-button label="Delete" severity="danger" (click)="delete(project.titre)"></p-button>
 
-                        </td>
-                    </tr>
-                </tbody>
-            </tr>
+                <tr *ngFor="let project of projects">
+                    <td>{{ project.titre }}</td>
+                    <td>{{ project.description }}</td>
+                    <td>{{ project.fichier_charge }}</td>
+                    <td>{{ project.date_debut }}</td>
+                    <td>{{ project.status }}</td>
+                    <td>{{ project.date_debut }}</td>
+                    <td>{{ project.date_fin }}</td>
+                    <td>
+                        <p-button label="Delete" severity="danger" (click)="delete(project.titre)"></p-button>
+
+                    </td>
+                </tr>
+
+
         </ng-template>
     </p-treeTable>
 </div>

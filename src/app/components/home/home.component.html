@@ -1,19 +1,18 @@
 <div class="flex">
-    <!-- <app-card class="inline-card" [cardheight]="'500px'">
-    </app-card> -->
-    <app-chart-v2 class="inline-card"></app-chart-v2>
 
-    <!-- <app-card class="inline-card" [cardheight]="'500px'">
-    </app-card> -->
-    <app-chart class="inline-card"> </app-chart>
-    <app-progress class="inline-card" [cardheight]="'250px'"> </app-progress>
+    <app-chart-v2 class="inline-card" *ngIf="isLoggedInAdministrator()"></app-chart-v2>
+
+
+    <app-chart class="inline-card" *ngIf="isLoggedInAdministrator() "> </app-chart>
+    <app-progress class="inline-card" [cardheight]="'250px'" *ngIf="isLoggedInAdministrator()||isLoggedinConsultant() "> </app-progress>
+    <app-projectstatus class="inline-card" *ngIf="isLoggedInClient()"> </app-projectstatus>
+    <app-consultantdetails class="inline-card" *ngIf="isLoggedinConsultant()"> </app-consultantdetails>
 </div>
 <div style="margin-top: 20px;">
-    <!-- <app-card class="below-cards" [cardheight]="'500px'" [cardWidth]="'940px'"></app-card> -->
-    <app-view class="below-cards" [cardheight]="'1000px'" [cardWidth]="'1200px'"></app-view>
+    <app-view class="below-cards" [cardheight]="'1400px'" [cardWidth]="'1200px'" *ngIf="isLoggedInAdministrator() "></app-view>
 </div>
 <div style="margin-top: 20px;">
     <div style="margin-top:20px;">
-        <app-projects class="below-cards" [cardheight]="'1000px'" [cardWidth]="'1440px'"></app-projects>
+        <app-projects class="below-cards" [cardheight]="'1500px'" [cardWidth]="'1440px'" *ngIf="isLoggedInAdministrator() "></app-projects>
     </div>
 </div>

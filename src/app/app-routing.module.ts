@@ -7,12 +7,14 @@ import { authGuard } from './guards/auth.guard';
 import { AddClientComponent } from './components/Add/add-client/add-client.component';
 import { AddConsultantComponent } from './components/Add/add-consultant/add-consultant.component';
 import { AddAdministrateurComponent } from './components/Add/add-administrateur/add-administrateur.component';
-import { HomeClientComponent } from './components/home-client/home-client.component';
 import { HomeConsultantComponent } from './components/home-consultant/home-consultant.component';
 import { ProgressComponent } from './components/progress/progress.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { AddProjectComponent } from './components/Add/add-project/add-project.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { ProjectstatusComponent } from './components/projectstatus/projectstatus.component';
+import { identifierGuard } from './guards/identifier.guard';
+
 
 const routes: Routes = [
   {path:'', redirectTo:'/login',pathMatch:'full'}, 
@@ -24,14 +26,7 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
-  {
-    path: 'homeClient',
-    component: HomeClientComponent
-  },
-  {
-    path: 'progress',
-    component: ProgressComponent
-  },
+
   {
     path: 'homeConsultant',
     component: HomeConsultantComponent
@@ -50,7 +45,7 @@ const routes: Routes = [
   //   canActivate: [authGuard]
   // },  
 
-  { path:'homeadmin',
+  { path:'home',
   canActivate: [authGuard], children: [ 
     {path:'', component:HomeComponent}, 
    {path:'addConsultant', component:AddConsultantComponent}, 

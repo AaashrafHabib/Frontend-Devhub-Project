@@ -34,7 +34,7 @@ export class AddProjectComponent implements OnInit {
 
   }
   addprojectform = this.fb.group({
-    titre: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+    titre: ['', [Validators.required]],
     // client_username: [this.x, [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     description: ['', [Validators.required, Validators.minLength(20)]],
     fichier_charge: ['', Validators.required],  // Add the 'file' form control

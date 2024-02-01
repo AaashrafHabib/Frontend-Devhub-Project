@@ -22,7 +22,6 @@ import { AddClientComponent } from './components/Add/add-client/add-client.compo
 import { AddAdministrateurComponent } from './components/Add/add-administrateur/add-administrateur.component';
 import { AddConsultantComponent } from './components/Add/add-consultant/add-consultant.component';
 import { TreeSelectModule } from 'primeng/treeselect';
-import { HomeClientComponent } from './components/home-client/home-client.component';
 import { HomeConsultantComponent } from './components/home-consultant/home-consultant.component';
 import { ProgressComponent } from './components/progress/progress.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
@@ -30,7 +29,6 @@ import { AddProjectComponent } from './components/Add/add-project/add-project.co
 import { MyformComponent } from './components/myform/myform.component';
 import { CardComponent } from './components/card/card.component';
 import { TableModule } from 'primeng/table';
-import { FeedsComponent } from './components/feeds/feeds.component';
 import { ProgressBarModule } from 'primeng/progressbar'; 
 import { PrincipalComponent } from './components/principal/principal.component';
 import { TableComponent } from './components/table/table.component';
@@ -45,6 +43,11 @@ import { ChartComponent } from './components/chart/chart.component';
 import { ChartModule } from 'primeng/chart';
 import { ChartV2Component } from './components/chart-v2/chart-v2.component';
 import { AuthInterceptor } from './interceptors/token_interceptor';
+import { ProjectstatusComponent } from './components/projectstatus/projectstatus.component';
+import { TieredMenuModule } from 'primeng/tieredmenu';
+import { ConsultantdetailsComponent } from './components/consultantdetails/consultantdetails.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -56,17 +59,16 @@ import { AuthInterceptor } from './interceptors/token_interceptor';
     AddClientComponent,
     AddAdministrateurComponent,
     AddConsultantComponent,
-    HomeClientComponent,
     HomeConsultantComponent,
     ProgressComponent,
     ForgotpasswordComponent,
     AddProjectComponent,
     MyformComponent,
     CardComponent,
-    FeedsComponent, 
+
     PrincipalComponent, 
     TableComponent,
-    ProjectsComponent, TableClientComponent, TableConsultantComponent, TableProjectComponent, ViewComponent, ChartComponent, ChartV2Component,
+    ProjectsComponent, TableClientComponent, TableConsultantComponent, TableProjectComponent, ViewComponent, ChartComponent, ChartV2Component, ProjectstatusComponent, ConsultantdetailsComponent, FooterComponent, HeaderComponent,
     
     
   ],
@@ -76,7 +78,7 @@ import { AuthInterceptor } from './interceptors/token_interceptor';
     CardModule,
     InputTextModule,
     ReactiveFormsModule, 
-    ButtonModule,TableModule, ProgressBarModule,DropdownModule,TreeTableModule,ChartModule
+    ButtonModule,TableModule, ProgressBarModule,DropdownModule,TreeTableModule,ChartModule, TieredMenuModule
     ,HttpClientModule,ToastModule ,BrowserAnimationsModule, PasswordModule ,FormsModule,MenubarModule ,TreeSelectModule,TimelineModule
   ],
   providers: [MessageService,

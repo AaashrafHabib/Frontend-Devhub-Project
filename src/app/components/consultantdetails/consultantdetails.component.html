@@ -1,0 +1,18 @@
+<p-card header="Table View" [style]="{ width: cardWidth, height: cardheight }">
+    <div class="project-cards-container">
+        <div class="project-card" *ngFor="let project of projects">
+            <p-card [header]="project.titre">
+                <div class="project-details">
+                    <p class="start-date">Start Date: {{ project.date_debut }}</p>
+                    <p class="end-date">End Date: {{ project.date_fin }}</p>
+                    <p class="description">Description: {{ project.description }}</p>
+                    <p class="title">Title: {{ project.titre }}</p>
+                    <p class="status">
+                        Status:
+                        <i [class]="getIconClass(project.status)"></i> {{ project.status }}
+                    </p>
+                </div>
+            </p-card>
+        </div>
+    </div>
+</p-card>
